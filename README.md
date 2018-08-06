@@ -1,5 +1,4 @@
 # AI-Dev-Platform
-Deploying a platform for the development of AI
 
 This is a project for deploying a development for AI, especially for the case of internal network.
 
@@ -17,4 +16,3 @@ So, generally, the environment is as following:
       which you can refer to make your docker configuration file and you should
       put the file into the folder /etc/docker of your machine, and the file name
       should be daemon.json as well.
-      
