@@ -1,4 +1,5 @@
 {
-  "registry-mirrors":["http://10.146.3.105:5000"],
-  "insecure-registries":["10.146.3.105:5000"]
+  "registry-mirrors":["http://10.146.3.105:8083"],
+  "insecure-registries":["10.146.3.105:8082","10.146.3.105:8083"],
+  "disable-legacy-registry": true
 }

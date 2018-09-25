@@ -1,0 +1,117 @@
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#released updates
+[updates]
+name=CentOS-$releasever - Updates
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+#baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+[cr]
+name=CentOS-$releasever - cr
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/cr/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+enabled=0
+
+[base-debuginfo]
+name=CentOS-7 - Debuginfo
+baseurl=http://debuginfo.centos.org/7/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Debug-7
+enabled=0
+
+[fasttrack]
+name=CentOS-7 - fasttrack
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/fasttrack/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+[base-source]
+name=CentOS-$releasever - Base Sources
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/os/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#released updates
+[updates-source]
+name=CentOS-$releasever - Updates Sources
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/updates/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that may be useful
+[extras-source]
+name=CentOS-$releasever - Extras Sources
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/extras/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that extend functionality of existing packages
+[centosplus-source]
+name=CentOS-$releasever - Plus Sources
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/$releasever/centosplus/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/pub/epel/7/$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/pub/epel/7/$basearch/debug
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/pub/epel/7/SRPMS
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+gpgcheck=1
+
+[epel-apache-maven]
+name=maven from apache foundation.
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/repos/dchen/apache-maven/epel-$releasever/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
+
+[epel-apache-maven-source]
+name=maven from apache foundation. - Source
+baseurl=http://10.146.3.105:8081/repository/yum-repo-group/repos/dchen/apache-maven/epel-$releasever/SRPMS
+enabled=0
+skip_if_unavailable=1
+gpgcheck=0

@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
-sshpass -p 10530022 ssh -C -f -N -g -L 8088:10.167.160.38:8088 modongsong@10.123.3.105
 
-sshpass -p 10530022 ssh -C -f -N -g -L 8443:10.167.160.38:8443 modongsong@10.123.3.105
+IP_PORTS=(
+"8089:10.167.160.39:8089"
+"8443:10.167.160.39:8443"
+)
 
-sshpass -p 10530022 ssh -C -f -N -g -L 8081:10.167.160.38:8081 modongsong@10.123.3.105
+function connect(){
+    for ipport in ${IP_PORTS[*]}
+    do
+        echo "Build the channel to $ipport"
+        pkill -f "$ipport"
+        sshpass -p 10530022 ssh -C -f -N -g -L $ipport modongsong@10.123.3.105
+    done
+}
+
+connect
