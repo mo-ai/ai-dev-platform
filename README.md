@@ -21,6 +21,7 @@ Plan:
 (9)  Ceph              (Storage，怎么安装，kubernetes?)
 (10) Openshift         ()
 (11) GitLab            ()
+(12) Bitbucket         ()
 (12) Jenkins           ()
 (13) codis
 (14) Ambari
