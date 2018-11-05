@@ -37,4 +37,4 @@ function build(){
     buildFinalDocker
 }
 
-run
+build
