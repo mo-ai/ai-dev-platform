@@ -12,6 +12,7 @@ function buildNexusHelm(){
 
     cd ${home}/nexus-repository-helm
     mvn -DskipTests clean install
+    cd ${home}
 }
 
 function buildNexusApt(){
@@ -21,6 +22,7 @@ function buildNexusApt(){
 
     cd ${home}/nexus-repository-apt
     mvn -DskipTests clean install
+    cd ${home}
 }
 
 function buildPlugins(){
