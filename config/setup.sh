@@ -7,6 +7,7 @@ function setupCentosRepos(){
 }
 
 function setupDocker(){
+    sudo mkdir /etc/docker
     sudo cp etc/docker/daemon.json  /etc/docker
 }
 
@@ -14,11 +15,36 @@ function setupPki(){
     sudo cp etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
 }
 
+function isCentos(){
+    test -e /etc/redhat-release
+}
 
-function run(){
+function isUbuntu(){
+    uname -a | grep ubuntu > /dev/null
+}
+
+function runOnCentos(){
     setupCentosRepos
     setupDocker
     setupPki
+}
+
+function runOnUbuntu(){
+    setupDocker
+}
+
+function run(){
+    if isCentos; then
+        runOnCentos
+        return
+    fi
+
+    if isUbuntu; then
+        runOnUbuntu
+        return
+    fi
+
+    echo "Not supported on this OS!"
 }
 
 run
