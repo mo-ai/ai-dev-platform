@@ -11,6 +11,6 @@ sudo docker stop gogs
 sudo docker rm gogs
 
 
-sudo docker run -d --name=gogs -p 10044:22 -p 10080:3000 -v ${home}/data:/data gogs/gogs
+sudo docker run -d --name=gogs -p 10044:10044 -p 10080:3000 -v ${home}/data:/data gogs/gogs
 
 cd $curDir
