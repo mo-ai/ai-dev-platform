@@ -1,18 +1,32 @@
 #!/usr/bin/env bash
 
+os=centos
+
 function setupCentosRepos(){
     sudo mkdir /etc/repos.d.bak
     sudo mv /etc/repos.d/*   /etc/repos.d.bak
-    sudo cp etc/repos.d/nexus.repo   /etc/repos.d
+    sudo cp $os/etc/repos.d/nexus.repo   /etc/repos.d
 }
 
 function setupDocker(){
     sudo mkdir /etc/docker
-    sudo cp etc/docker/daemon.json  /etc/docker
+    sudo cp $os/etc/docker/daemon.json  /etc/docker
 }
 
-function setupPki(){
-    sudo cp etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
+function setupCentosPki(){
+    sudo cp $os/etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
+}
+
+function setupUbuntuSource(){
+    sudo mv /etc/apt/source.list /etc/apt/source.list.bak
+    sudo cp $os/etc/apt/source.list /etc/apt
+}
+
+function setupUbuntuGPG(){
+    for gpg in `ls $os/gpg`
+    do
+        sudo apt-get add $gpg
+    done
 }
 
 function isCentos(){
@@ -23,26 +37,33 @@ function isUbuntu(){
     uname -a | grep ubuntu > /dev/null
 }
 
-function runOnCentos(){
-    setupCentosRepos
-    setupDocker
-    setupPki
-}
-
-function runOnUbuntu(){
-    setupDocker
-}
-
-function run(){
+function checkOS(){
     if isCentos; then
-        runOnCentos
+        os=centos
         return
     fi
 
     if isUbuntu; then
-        runOnUbuntu
+        os=ubuntu
         return
     fi
+
+}
+function run_on_centos(){
+    setupCentosRepos
+    setupDocker
+    setupCentosPki
+}
+
+function run_on_ubuntu(){
+    setupUbuntuSource
+    setupDocker
+    setupUbuntuGPG
+}
+
+function run(){
+    checkOS
+    run_on_$os
 
     echo "Not supported on this OS!"
 }
