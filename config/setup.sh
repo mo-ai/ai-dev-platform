@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-os=centos
+os=
 
-function setupCentosRepos(){
+function setupCentosRepos() {
     sudo mkdir /etc/repos.d.bak
     sudo mv /etc/repos.d/*   /etc/repos.d.bak
     sudo cp $os/etc/repos.d/nexus.repo   /etc/repos.d
@@ -25,7 +25,7 @@ function setupUbuntuSource(){
 function setupUbuntuGPG(){
     for gpg in `ls $os/gpg`
     do
-        sudo apt-get add $gpg
+        sudo apt-key add $gpg
     done
 }
 
@@ -49,6 +49,7 @@ function checkOS(){
     fi
 
 }
+
 function run_on_centos(){
     setupCentosRepos
     setupDocker
@@ -65,7 +66,9 @@ function run(){
     checkOS
     run_on_$os
 
-    echo "Not supported on this OS!"
+    if [ "$os" = "" ]; then
+       echo "Not supported on this OS!"
+    fi
 }
 
 run
