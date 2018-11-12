@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 os=
 
 function setupCentosRepos() {
@@ -18,8 +20,8 @@ function setupCentosPki(){
 }
 
 function setupUbuntuSource(){
-    sudo mv /etc/apt/source.list /etc/apt/source.list.bak
-    sudo cp $os/etc/apt/source.list /etc/apt
+    sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+    sudo cp $os/etc/apt/sources.list /etc/apt
 }
 
 function setupUbuntuGPG(){

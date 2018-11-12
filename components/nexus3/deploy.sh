@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 curDir=`pwd`
 baseDir=$(dirname $0)
 cd $baseDir
