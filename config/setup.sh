@@ -72,11 +72,15 @@ function run_on_ubuntu(){
 
 function run(){
     checkOS
-    run_on_$os
 
     if [ "$os" = "" ]; then
        echo "Not supported on this OS!"
+       exit 1
     fi
+
+    run_on_$os
+
+    echo "The setup is completed."
 }
 
 run
