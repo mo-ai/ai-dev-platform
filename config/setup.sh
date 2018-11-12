@@ -13,7 +13,7 @@ function setupCentosRepos() {
 
 function setupDocker(){
     echo "Setup Docker ..."
-    ! sudo test -e /etc/docker && mkdir /etc/docker
+    ! sudo test -e /etc/docker && sudo mkdir /etc/docker
     sudo cp common/etc/docker/daemon.json  /etc/docker
 }
 
