@@ -10,7 +10,7 @@ function setupCentosRepos() {
 
 function setupDocker(){
     sudo mkdir /etc/docker
-    sudo cp $os/etc/docker/daemon.json  /etc/docker
+    sudo cp common/etc/docker/daemon.json  /etc/docker
 }
 
 function setupCentosPki(){
