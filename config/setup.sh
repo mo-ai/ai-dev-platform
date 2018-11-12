@@ -5,26 +5,31 @@ set -e
 os=
 
 function setupCentosRepos() {
+    echo "Setup Centos Repositoris ..."
     sudo mkdir /etc/repos.d.bak
     sudo mv /etc/repos.d/*   /etc/repos.d.bak
     sudo cp $os/etc/repos.d/nexus.repo   /etc/repos.d
 }
 
 function setupDocker(){
+    echo "Setup Docker ..."
     ! sudo test -e /etc/docker && mkdir /etc/docker
     sudo cp common/etc/docker/daemon.json  /etc/docker
 }
 
 function setupCentosPki(){
+    echo "Setup Centos Pki ..."
     sudo cp $os/etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
 }
 
 function setupUbuntuSource(){
+    echo "Setup Ubuntu Sources ..."
     sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
     sudo cp $os/etc/apt/sources.list /etc/apt
 }
 
 function setupUbuntuGPG(){
+    echo "Setup Ubuntu gpg ..."
     for gpg in `ls $os/gpg`
     do
         sudo apt-key add $gpg
@@ -40,6 +45,7 @@ function isUbuntu(){
 }
 
 function checkOS(){
+    echo "Check OS ..."
     if isCentos; then
         os=centos
         return
