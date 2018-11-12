@@ -8,7 +8,7 @@ function setupCentosRepos() {
     echo "Setup Centos Repositoris ..."
     sudo mkdir /etc/repos.d.bak
     sudo mv /etc/repos.d/*   /etc/repos.d.bak
-    sudo cp $os/etc/repos.d/nexus.repo   /etc/repos.d
+    sudo cp centos/etc/repos.d/nexus.repo   /etc/repos.d
 }
 
 function setupDocker(){
@@ -19,7 +19,7 @@ function setupDocker(){
 
 function setupCentosPki(){
     echo "Setup Centos Pki ..."
-    sudo cp $os/etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
+    sudo cp centos/etc/pki/rpm-gpg/*     /etc/pki/rpm-gpg
 }
 
 function setupUbuntuSource(){
@@ -30,9 +30,9 @@ function setupUbuntuSource(){
 
 function setupUbuntuGPG(){
     echo "Setup Ubuntu gpg ..."
-    for gpg in `ls $os/gpg`
+    for gpg in `ls ubuntu/gpg`
     do
-        sudo apt-key add $gpg
+        sudo apt-key add ubuntu/gpg/$gpg
     done
 }
 
