@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source config
+source config.default
 
 curDir=`pwd`
 baseDir=$(dirname $0)

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source config
+source config.default
 
 sudo docker run -d --privileged --restart=unless-stopped \
      --net=host -v /etc/kubernetes:/etc/kubernetes \
