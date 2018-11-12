@@ -10,18 +10,21 @@ So, generally, the environment is as following:
 
 Plan:
 
-(1)  Docker Registry   (in proxy machine)
-(2)  Nexus3-helm-repo  (in proxy machine, as the proxy of Docker, Helm, Yum, Maven, etc.)
-(3)  Rancher           (in production machine, management of the clusters of Kubernetes)
+(1)  Docker Registry   (in proxy machine) . 
+(2)  Nexus3-helm-repo  (in proxy machine, as the proxy of Docker, Helm, Yum, Maven, etc.)  
+(3)  Rancher           (in production machine, management of the clusters of Kubernetes) 
 (4)  chartmuseum       (in production machine, a tools for the installation of helms)
-(5)  Openproject       (for project management)
-(6)  Eclipse-Che       (Web IDE)
-(7)  Kong              (API gateway, service mesh)
-(8)  Istio             (Service Mesh)
-(9)  Ceph              (Storage，怎么安装，kubernetes?)
-(10) Openshift         ()
-(11) GitLab            ()
-(12) Bitbucket         ()
-(12) Jenkins           ()
-(13) codis
-(14) Ambari
+(5)  Openproject       (for project management)  
+(6)  Eclipse-Che       (Web IDE)  
+(7)  Kong              (API gateway, service mesh)  
+(8)  Istio             (Service Mesh)  
+(9)  Ceph              (Storage，怎么安装，kubernetes?)  
+(10) Openshift         ()  
+(11) GitLab            ()  
+(12) Bitbucket         ()  
+(12) Jenkins           ()  
+(13) codis             ()
+(14) Ambari            ()
+(15) Gogs              (Git Server written by GO)  
+(16) Jupyterhub        ()  
+(17) Jupyterlab        ()  
