@@ -9,6 +9,7 @@ sudo docker run -d --privileged --restart=unless-stopped \
      --token lkgjbn49ww4blqs4zkf9f8k44clngtzh9x5v64n2fs5htt9gb8tqqv \
      --ca-checksum 518535daa15f4bd507afd766183fefefadd6f93690c74f64942703cacdea3d94 \
      --address ${LOCAL_ADDRESS} --internal-address ${LOCAL_ADDRESS} \
+     --node-name ${NODE_NAME}
      --worker
 
 

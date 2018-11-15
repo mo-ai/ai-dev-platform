@@ -9,4 +9,4 @@ sudo docker run -d --privileged --restart=unless-stopped \
      --token ${TOKEN} \
      --ca-checksum ${CA_CHECKSUM} \
      --address ${LOCAL_ADDRESS} --internal-address ${LOCAL_ADDRESS} \
-     --etcd --controlplane --worker
+     --etcd --controlplane --node-name ${NODE_NAME} --worker
