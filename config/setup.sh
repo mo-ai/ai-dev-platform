@@ -13,6 +13,9 @@ function setupCentosRepos() {
 
 function setupDocker(){
     echo "Setup Docker ..."
+
+    sudo groupadd docker || sudo gpasswd -a ${USER} docker || sudo systemctl restart docker
+
     ! sudo test -e /etc/docker && sudo mkdir /etc/docker
     sudo cp common/etc/docker/daemon.json  /etc/docker
 }
