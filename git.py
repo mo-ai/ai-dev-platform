@@ -13,7 +13,8 @@ def clone(fold_name, repository_name):
             print 'Update: ' + fold_name + ':' + repository_name + ': in ' + os.path.abspath(os.curdir)
             subprocess.Popen(['git', 'pull']).communicate()
         else:
-            os.makedirs(fold_name, 0777, True)
+            if not os.path.exists(fold_name):
+                 os.makedirs(fold_name)
             os.chdir(fold_name)
             print 'Clone: ' + fold_name + ':' + repository_name + ': in ' + os.path.abspath(os.curdir)
             subprocess.Popen(['git', 'clone', git_server + repository_name, '.']).communicate()
@@ -21,6 +22,7 @@ def clone(fold_name, repository_name):
         print e
     finally:
         os.chdir(cur_dir)
+        print 'Current Directory:'+cur_dir
 
 
 def run():
