@@ -1,74 +1,52 @@
-git_server = ""
+import json
+import os
+import subprocess
 
-repositories = \
-    {
-        "ai_abilities": {
-            "ai_audio_recognition": {
-                "ai_audio_recognition_musicgene": "lingxiyun/musicgeneai.git"
-            },
-            "ai_cartoon": {
-                "ai_cartoon_characterdetection": "lingxiyun/characterdetectionai.git",
-                "ai_cartoon_control": "lingxiyun/cartoon_control.git",
-                "ai_cartoon_cos": "lingxiyun/instant_cos.git",
-                "ai_cartoon_coverextract": "lingxiyun/coverextractionai.git",
-                "ai_cartoon_ipcharacter": "lingxiyun/relevantcharacterai.git"
-            },
-            "ai_face": {
-                "ai_face_caffee": "lingxiyun/face_pay_coffee.git",
-                "ai_face_music": "miguai/music_ai.git"
-            },
-            "ai_face2cartoon": {
-                "face2cartoon-docker": "miguai/face2cartoon-docker.git",
-                "face2cartoon-second_phrase": "miguai/face2cartoon-second_phrase.git",
-                "pk-ai": "miguai/pk-ai.git"
-            },
-            "ai_video_action": {
-                "ai_video_action_dance": "lingxiyun/dance.git",
-                "ai_video_action_exercise": "lingxiyun/shanpaoai.git"
-            },
-            "ai_video_clip": {
-                "ai_videoclip_game": "lingxiyun/gameai.git",
-                "ai_videoclip_music": "lingxiyun/Concert_Clip_boshi.git",
-                "ai_videoclip_premierleague": "lingxiyun/premier_league.git",
-                "ai_videoclip_worldcup2018": "lingxiyun/aihighlightclip_worldcup2018.git"
-            },
-            "ai_video_live": {
-                "ai_video_live_emotion": "lingxiyun/mgaiemo.git"
-            },
-            "ai_video_process": {
-                "ai_video_process_optimization": "lingxiyun/video_optimization.git"
-            },
-            "ai_video_recognition": {
-                "ai_video_recognition_ad": "lingxiyun/mgaiadadv.git",
-                "ai_video_recognition_adcar": "lingxiyun/mgaiadcar.git",
-                "ai_video_recognition_adstar": "lingxiyun/mgaiadstar.git",
-                "ai_video_recognition_label": "lingxiyun/video-labelling.git",
-                "ai_video_recognition_search": "lingxiyun/video_search.git"
-            }
-        },
-        "ai_deepwise": {
-            "knowledge-graph": "lingxiyun/knowledge-graph.git",
-            "recommend-system": "lingxiyun/recommend-system.git"
-        },
-        "ai_incubating": {
-            "ai_incubating_videoclip": "miguai/ai_incubating_videoclip.git"
-        },
-        "ai_platform": {
-            "pf_console": "Planet/Saturn.git",
-            "pf_infer": "Planet/Venus.git",
-            "pf_learning": "Planet/Mars.git",
-            "pf_mark": "Planet/Jupiter.git",
-            "pf_model": "Planet/Uranus.git",
-            "pf_pass": "Planet/Mercury.git"
-        }
-    }
+git_server = "http://172.20.92.53/"
 
 
-def update():
+def clone(fold_name, repository_name):
+    cur_dir = os.path.abspath(os.curdir)
+    try:
+        if os.path.exists(fold_name + '/.git'):
+            os.chdir(fold_name)
+            print 'Update: ' + fold_name + ':' + repository_name + ': in ' + os.path.abspath(os.curdir)
+            subprocess.Popen(['git', 'pull']).communicate()
+        else:
+            if not os.path.exists(fold_name):
+                 os.makedirs(fold_name)
+            os.chdir(fold_name)
+            print 'Clone: ' + fold_name + ':' + repository_name + ': in ' + os.path.abspath(os.curdir)
+            subprocess.Popen(['git', 'clone', git_server + repository_name, '.']).communicate()
+    except Exception as e:
+        print e
+    finally:
+        os.chdir(cur_dir)
+        print 'Current Directory:'+cur_dir
 
-    return
+
+def run():
+    with open('repositories.json', 'r') as f:
+        repos = json.load(f)
+        do_action(repos, '', '', clone)
 
 
-def clone():
-    return
+def do_action(json_obj, pre_key, fold_name, func):
+    if isinstance(json_obj, unicode):
+        print json_obj
+        return
 
+    if len(fold_name) == 0:
+        fold_name = pre_key
+    else:
+        fold_name = fold_name + '/' + str(pre_key)
+
+    for key, value in json_obj.items():
+        if isinstance(value, unicode):
+            func(fold_name + "/" + key, value)
+        else:
+            do_action(value, key, fold_name, func)
+
+
+if __name__ == '__main__':
+    run()

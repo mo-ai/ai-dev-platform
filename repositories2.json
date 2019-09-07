@@ -1,0 +1,46 @@
+{
+  /*group语音: ai-abilities-audio*/
+  "ai-abilities-audio": {
+    "ai-audio-recognition-musicgene": "ai-abilities-audio/ai-audio-recognition-musicgene.git"
+  },
+  /*group卡通: ai-abilities-cartoon*/
+  "ai-abilities-cartoon": {
+    "ai-cartoon-characterdetection": "ai-abilities-cartoon/ai-cartoon-characterdetection.git",
+    "ai-cartoon-control": "ai-abilities-cartoon/ai-cartoon-control.git",
+    "ai-cartoon-cos": "ai-abilities-cartoon/ai-cartoon-cos.git",
+    "ai-cartoon-coverextract": "ai-abilities-cartoon/ai-cartoon-coverextract.git",
+    "ai-cartoon-ipcharacter": "ai-abilities-cartoon/ai-cartoon-ipcharacter.git"
+  },
+  /*group人脸: ai-abilities-face*/
+  "ai-abilities-face": {
+    "ai-face-caffee": "ai-abilities-face/ai-face-caffee.git",
+    "ai-face-music": "ai-abilities-face/ai-face-music.git"
+  },
+  /*group视频: ai-abilities-video*/
+  "ai-video-abilities": {
+    "ai-video-action-dance": "ai-video-abilities/ai-video-action-dance.git",
+    "ai-video-action-exercise": "ai-video-abilities/ai-video-action-exercise.git",
+    "ai-video-clip-game": "ai-video-abilities/ai-video-clip-game.git",
+    "ai-video-clip-music": "ai-video-abilities/ai-video-clip-music.git",
+    "ai-video-clip-premierleague": "ai-video-abilities/ai-video-clip-premierleague.git",
+    "ai-video-clip-worldcup2018": "ai-video-abilities/ai-video-clip-worldcup2018.git",
+    "ai-video-live-emotion": "ai-video-abilities/ai-video-live-emotion.git",
+    "ai-video-process-optimization": "ai-video-abilities/ai-video-process-optimization.git",
+    "ai-video-recognition-ad": "ai-video-abilities/ai-video-recognition-ad.git",
+    "ai-video-recognition-adcar": "ai-video-abilities/ai-video-recognition-adcar.git",
+    "ai-video-recognition-adstar": "ai-video-abilities/ai-video-recognition-adstar.git",
+    "ai-video-recognition-label": "ai-video-abilities/ai-video-recognition-label.git",
+    "ai-video-recognition-search": "ai-video-abilities/ai-video-recognition-search.git"
+  },
+  /*group深度智慧: ai-deepwise*/
+  "ai-deepwise": {
+    "knowledge-graph": "ai-deepwise/knowledge-graph.git",
+    "recommend-system": "ai-deepwise/recommend-system.git"
+  },
+  /*group内化: ai-incubating*/
+  "ai-incubating": {
+    "ai-incubating-videoclip": "ai-incubating/ai-incubating-videoclip.git",
+    "ai-incubating-cv": "ai-incubating/ai-incubating-cv.git",
+    "ai-incubating-kd": "ai-incubating/ai-incubating-kd.git"
+  }
+}
