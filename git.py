@@ -49,4 +49,8 @@ def do_action(json_obj, pre_key, fold_name, func):
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     run()
+=======
+    run()
+>>>>>>> 51fbf5f0c90655fe3964de1cb56863e1752b1fd4
